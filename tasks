@@ -17,6 +17,6 @@ git pull origin main
 TASKELL=`which taskell`
 TASKDIR="${HOME}/Git/kanban"
 
-ls $TASKDIR | fzf --bind "enter:execute(cd $TASKDIR  && $TASKELL {+} && git add {+} && git commit -a -m 'updating board {+}')" --bind "N:execute($TASKELL {q})"
+ls $TASKDIR | fzf --bind "enter:execute(cd $TASKDIR  && $TASKELL {+} && git add {+} && git commit -a -m 'updating board {+}')" --bind "ctrl-n:execute($TASKELL {q})"
 
 git push origin main
