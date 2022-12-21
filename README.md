@@ -8,4 +8,4 @@
 
 and a repo for your boards.
 
-Add to nnn plugins directory
+Add to nnn plugins directory, see [plugin instructions](https://github.com/jarun/nnn/tree/master/plugins#installation). 
