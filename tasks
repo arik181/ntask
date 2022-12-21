@@ -1,0 +1,22 @@
+#!/usr/bin/env sh
+
+# Description: Launch taskell through fzf list of current kanban boards
+#
+# Shell: POSIX compliant
+# Author: arik181
+
+gitdir=~/Git
+ndir=~/Git/kanban
+gdir=~/Git/kanban/.git
+repo=git@github.com:`whoami`/kanban.git
+
+[ ! -d $ndir ] && `cd $gitdir && git clone $repo`
+cd $ndir
+git pull origin main
+
+TASKELL=`which taskell`
+TASKDIR="${HOME}/Git/kanban"
+
+ls $TASKDIR | fzf --bind "enter:execute(cd $TASKDIR  && $TASKELL {+} && git add {+} && git commit -a -m 'updating board {+}')"
+
+git push origin main
